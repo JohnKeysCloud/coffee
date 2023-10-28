@@ -1,0 +1,70 @@
+@import '../css/cyclone-reset.css';
+@font-face {
+  font-family: "Hello Headline";
+  src: url("../assets/fonts/hello-headline.woff2") format("woff2");
+}
+body {
+  background-color: #d6f3fb;
+  font-family: "Hello Headline";
+}
+
+header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 1.5rem;
+}
+header .header-title {
+  color: white;
+  font-size: clamp(2.5rem, 22vw, 11rem);
+  line-height: 1;
+  padding-top: 20px;
+}
+header nav .nav-button {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 25px;
+  justify-content: center;
+  width: 33px;
+}
+header nav .nav-button .nav-san {
+  background-color: #704241;
+  border-radius: 25px;
+  height: 2px;
+  position: relative;
+  width: 100%;
+}
+header nav .nav-button .nav-san::before, header nav .nav-button .nav-san::after {
+  background-color: #704241;
+  border-radius: 25px;
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 2px;
+  width: 100%;
+}
+header nav .nav-button .nav-san::before {
+  transform: translateY(-9.5px);
+}
+header nav .nav-button .nav-san::after {
+  transform: translateY(9.5px);
+}
+header nav .nav-ul {
+  display: none;
+}
+
+main section:nth-of-type(1) {
+  background-color: #704241;
+  height: 500px;
+}
+main section:nth-of-type(2) {
+  background-color: #FEFED2;
+  height: 500px;
+}
+main section:nth-of-type(3) {
+  background-color: #FAECC1;
+  height: 500px;
+}
+
+/*# sourceMappingURL=style.css.map */

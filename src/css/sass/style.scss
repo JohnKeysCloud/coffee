@@ -1,0 +1,89 @@
+@import '../css/cyclone-reset.css';
+
+@font-face {
+  font-family: 'Hello Headline';
+  src: url('../assets/fonts/hello-headline.woff2') format('woff2');
+}
+
+body {
+  background-color: #d6f3fb;
+  font-family: 'Hello Headline';
+}
+
+header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 1.5rem;
+
+
+  .header-title {
+    color: white;
+    font-size: clamp(2.5rem, 22vw, 11rem);
+    line-height: 1;
+    padding-top: 20px;
+    // text-shadow: 0 0 8px black;
+  }
+
+  nav {
+    .nav-button {
+      $button-size: 25px;
+      $san-size: 2px;
+      $san-border-radius: 25px;
+      $san-color: #704241;
+
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      height: $button-size;
+      justify-content: center;
+      // padding-inline: 3px;
+      width: 33px;
+
+      .nav-san {
+        background-color: $san-color;
+        border-radius: $san-border-radius;
+        height: $san-size;
+        position: relative;
+        width: 100%;
+
+        &::before, &::after {
+          background-color: $san-color;
+          border-radius: $san-border-radius;
+          content: '';
+          position: absolute;
+          inset: 0;
+          height: $san-size;
+          width: 100%;
+        }
+
+        &::before {
+          transform: translateY(calc(($button-size - $san-size * 3) / -2 ));
+        }
+
+        &::after {
+          transform: translateY(calc(($button-size - $san-size * 3) / 2 ));
+        }
+      }
+    }
+
+    .nav-ul {
+      display: none;
+    }
+  }
+}
+
+// main {
+//   section:nth-of-type(1) {
+//     background-color: #704241;
+//     height: 500px;
+//   }
+//   section:nth-of-type(2) {
+//     background-color: #FEFED2;
+//     height: 500px;
+//   }
+//   section:nth-of-type(3) {
+//     background-color: #FAECC1;
+//     height: 500px;
+//   }
+// }
