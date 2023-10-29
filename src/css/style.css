@@ -1,4 +1,102 @@
 @import '../css/cyclone-reset.css';
+.nav-button {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  width: 20px;
+}
+.nav-button .nav-san, .nav-button .nav-san::before, .nav-button .nav-san::after {
+  transition: all 150ms ease-in-out;
+}
+.nav-button.open .nav-san {
+  background: transparent;
+}
+.nav-button.open .nav-san::before {
+  transform: translateY(0) rotate(-45deg);
+}
+.nav-button.open .nav-san::after {
+  transform: translateY(0) rotate(45deg);
+}
+.nav-button .nav-san {
+  background: #704241;
+  border-radius: 25px;
+  height: 2px;
+  position: relative;
+  width: 100%;
+}
+.nav-button .nav-san::before, .nav-button .nav-san::after {
+  background-color: #704241;
+  border-radius: 25px;
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 2px;
+  width: 100%;
+}
+.nav-button .nav-san::before {
+  transform: translateY(-7px);
+}
+.nav-button .nav-san::after {
+  transform: translateY(7px);
+}
+
+@media (min-width: 1024px) {
+  .nav-button {
+    display: none;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.nav-button.open + .nav-ul {
+  animation: fade-in 1s ease-in-out;
+  display: flex;
+}
+.nav-button.open + .nav-ul.closing {
+  animation: fade-out 100ms ease-in-out;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+}
+nav .nav-ul {
+  display: none;
+  gap: 1rem;
+  list-style: none;
+  position: absolute;
+  right: 1.5rem;
+  top: 75%;
+}
+nav .nav-ul .nav-li {
+  font-size: clamp(0.75rem, 2vw, 0.938rem);
+}
+nav .nav-ul .nav-a {
+  color: #704241;
+  text-decoration: none;
+}
+
+@media (min-width: 1024px) {
+  nav .nav-ul {
+    display: flex;
+    position: relative;
+  }
+}
 @font-face {
   font-family: "Hello Headline";
   src: url("../assets/fonts/hello-headline.woff2") format("woff2");
@@ -12,59 +110,68 @@ header {
   align-items: center;
   display: flex;
   justify-content: space-between;
+  margin-inline: auto;
+  max-width: 1200px;
   padding-inline: 1.5rem;
+  padding-top: 20px;
+  position: relative;
 }
 header .header-title {
   color: white;
   font-size: clamp(2.5rem, 22vw, 11rem);
   line-height: 1;
-  padding-top: 20px;
+  transform-origin: top left;
+  transition: transform 250ms ease-in-out;
+  text-shadow: 0 0 3px #704241;
 }
-header nav .nav-button {
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-  height: 25px;
-  justify-content: center;
-  width: 33px;
-}
-header nav .nav-button .nav-san {
-  background-color: #704241;
-  border-radius: 25px;
-  height: 2px;
-  position: relative;
-  width: 100%;
-}
-header nav .nav-button .nav-san::before, header nav .nav-button .nav-san::after {
-  background-color: #704241;
-  border-radius: 25px;
-  content: "";
-  position: absolute;
-  inset: 0;
-  height: 2px;
-  width: 100%;
-}
-header nav .nav-button .nav-san::before {
-  transform: translateY(-9.5px);
-}
-header nav .nav-button .nav-san::after {
-  transform: translateY(9.5px);
-}
-header nav .nav-ul {
-  display: none;
+header:has(.nav-button.open) .header-title {
+  transform: scale(0.75);
 }
 
-main section:nth-of-type(1) {
+section {
+  display: grid;
+  place-items: center;
+  height: 500px;
+}
+
+section img {
+  aspect-ratio: 1;
+  height: 300px;
+}
+
+.section-one {
   background-color: #704241;
-  height: 500px;
+  position: relative;
 }
-main section:nth-of-type(2) {
-  background-color: #FEFED2;
-  height: 500px;
+
+.custom-shape-divider-top-1698537274 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
 }
-main section:nth-of-type(3) {
-  background-color: #FAECC1;
-  height: 500px;
+
+.custom-shape-divider-top-1698537274 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 162px;
+}
+
+.custom-shape-divider-top-1698537274 .shape-fill {
+  fill: #D6F3FB;
+}
+
+@media (min-width: 1024px) {
+  nav .nav-ul {
+    display: flex;
+    position: relative;
+  }
+  header:has(.nav-button.open) .header-title {
+    transform: scale(1);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,64 @@
+.nav-button {
+  $button-size: 20px;
+  $san-size: 2px;
+  $san-border-radius: 25px;
+  $san-color: #704241;
+  $transition-time: 150ms; 
+
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: $button-size;
+  justify-content: center;
+  width: 20px;
+
+  .nav-san, .nav-san::before, .nav-san::after {
+    transition: all $transition-time ease-in-out;
+  }
+  
+  &.open {
+
+    .nav-san {
+      background: transparent;
+      
+      &::before {
+        transform: translateY(0) rotate(-45deg);
+      }
+      &::after {
+        transform: translateY(0) rotate(45deg);
+      }
+    }
+  }
+
+  .nav-san {
+    background: $san-color;
+    border-radius: $san-border-radius;
+    height: $san-size;
+    position: relative;
+    width: 100%;
+
+    &::before, &::after {
+      background-color: $san-color;
+      border-radius: $san-border-radius;
+      content: '';
+      position: absolute;
+      inset: 0;
+      height: $san-size;
+      width: 100%;
+    }
+
+    &::before {
+      transform: translateY(calc(($button-size - $san-size * 3) / -2 ));
+    }
+
+    &::after {
+      transform: translateY(calc(($button-size - $san-size * 3) / 2 ));
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-button {
+    display: none;
+  }
+}
