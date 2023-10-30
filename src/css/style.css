@@ -1,4 +1,5 @@
 @import '../css/cyclone-reset.css';
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 .nav-button {
   align-items: center;
   cursor: pointer;
@@ -20,14 +21,14 @@
   transform: translateY(0) rotate(45deg);
 }
 .nav-button .nav-san {
-  background: #704241;
+  background: white;
   border-radius: 25px;
   height: 2px;
   position: relative;
   width: 100%;
 }
 .nav-button .nav-san::before, .nav-button .nav-san::after {
-  background-color: #704241;
+  background-color: white;
   border-radius: 25px;
   content: "";
   position: absolute;
@@ -77,17 +78,34 @@ nav {
 }
 nav .nav-ul {
   display: none;
-  gap: 1rem;
+  gap: 1.5rem;
   list-style: none;
   position: absolute;
   right: 1.5rem;
-  top: 75%;
+  top: 65%;
 }
 nav .nav-ul .nav-li {
-  font-size: clamp(0.75rem, 2vw, 0.938rem);
+  position: relative;
+  transition: transform 250ms ease-in-out;
+}
+nav .nav-ul .nav-li::before {
+  content: "";
+  position: absolute;
+  inset: -5px -5px;
+  border-bottom: 2px solid white;
+  border-radius: 5px;
+  opacity: 1;
+  z-index: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+}
+nav .nav-ul .nav-li:hover::before {
+  transform: scaleX(1);
+  transition: transform 250ms ease-in-out;
 }
 nav .nav-ul .nav-a {
-  color: #704241;
+  color: white;
+  position: relative;
   text-decoration: none;
 }
 
@@ -97,77 +115,243 @@ nav .nav-ul .nav-a {
     position: relative;
   }
 }
+@-webkit-keyframes wobble-hor-bottom {
+  0%, 100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+  15% {
+    -webkit-transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-30px) rotate(-6deg);
+  }
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    -webkit-transform: translateX(-15px) rotate(-3.6deg);
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+  60% {
+    -webkit-transform: translateX(9px) rotate(2.4deg);
+    transform: translateX(9px) rotate(2.4deg);
+  }
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
+}
+@keyframes wobble-hor-bottom {
+  0%, 100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+  15% {
+    -webkit-transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-30px) rotate(-6deg);
+  }
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    -webkit-transform: translateX(-15px) rotate(-3.6deg);
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+  60% {
+    -webkit-transform: translateX(9px) rotate(2.4deg);
+    transform: translateX(9px) rotate(2.4deg);
+  }
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
+}
 @font-face {
   font-family: "Hello Headline";
   src: url("../assets/fonts/hello-headline.woff2") format("woff2");
 }
-body {
-  background-color: #d6f3fb;
-  font-family: "Hello Headline";
+:root {
+  --body-text-size: clamp(0.75rem, 2vw, 0.8313rem);
+  --color-primary: #704241;
+  --color-secondary: #D1E7E0;
+  --color-text-primary: white;
+  --color-text-secondary: #704241;
 }
 
-header {
+body {
+  background: var(--color-primary);
+  color: var(--color-text-primary);
+  font-family: "Open Sans", "Courier New", Courier, monospace;
+  font-size: var(--body-text-size);
+  font-weight: 300;
+}
+
+a {
+  color: var(--color-text-primary);
+  font-size: var(--body-text-size);
+  font-weight: bold;
+}
+
+header .header-content {
   align-items: center;
   display: flex;
   justify-content: space-between;
   margin-inline: auto;
   max-width: 1200px;
-  padding-inline: 1.5rem;
-  padding-top: 20px;
+  padding-block: 25px;
   position: relative;
 }
-header .header-title {
-  color: white;
+header .header-left {
+  display: flex;
+  flex-direction: column;
+}
+header .header-left .header-title {
+  font-family: "Hello Headline";
   font-size: clamp(2.5rem, 22vw, 11rem);
   line-height: 1;
+  position: relative;
+  text-decoration: none;
   transform-origin: top left;
   transition: transform 250ms ease-in-out;
-  text-shadow: 0 0 3px #704241;
 }
 header:has(.nav-button.open) .header-title {
-  transform: scale(0.75);
+  transform: scale(0.7);
 }
 
 section {
-  display: grid;
-  place-items: center;
-  height: 500px;
-}
-
-section img {
-  aspect-ratio: 1;
-  height: 300px;
-}
-
-.section-one {
-  background-color: #704241;
   position: relative;
 }
 
-.custom-shape-divider-top-1698537274 {
-  position: absolute;
-  top: 0;
+.page-content {
+  padding-inline: 1.5rem;
+}
+
+.section-content {
+  margin-inline: auto;
+  padding-block: 50px;
+  width: min(100%, 1200px);
+}
+
+.shape-divider {
   left: 0;
-  width: 100%;
-  overflow: hidden;
   line-height: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
 }
-
-.custom-shape-divider-top-1698537274 svg {
-  position: relative;
+.shape-divider svg {
   display: block;
+  height: 50px;
+  position: relative;
   width: calc(100% + 1.3px);
-  height: 162px;
 }
 
-.custom-shape-divider-top-1698537274 .shape-fill {
-  fill: #D6F3FB;
+.shape-divider-top {
+  top: 0;
 }
 
+.shape-divider-bottom {
+  bottom: 0;
+  transform: rotate(180deg);
+}
+
+.shop-display-section .shop-image {
+  width: 100%;
+}
+.shop-display-section .shape-divider-one .shape-fill {
+  fill: var(--color-primary);
+}
+.shop-display-section .shape-divider-two .shape-fill {
+  fill: var(--color-secondary);
+}
+
+.testimonial-section {
+  background-color: var(--color-secondary);
+}
+.testimonial-section .testimonial-section-content {
+  align-items: center;
+  display: grid;
+  gap: 1rem;
+  margin-inline: auto;
+  place-items: center;
+}
+.testimonial-section .testimonial-quote,
+.testimonial-section .testimonial-figcaption {
+  color: var(--color-text-secondary);
+  font-size: var(--body-text-size);
+  font-style: italic;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.testimonial-section .testimonial-figcaption {
+  font-weight: bold;
+}
+.testimonial-section .coffee-cup {
+  -webkit-animation: wobble-hor-bottom 3s both infinite;
+  animation: wobble-hor-bottom 3s both infinite;
+  aspect-ratio: 1;
+  filter: drop-shadow(3px 5px 5px var(--color-primary));
+  height: clamp(100px, 33vw, 300px);
+}
+.testimonial-section .shop-name {
+  font-weight: 700;
+}
+.testimonial-section .shape-divider-three .shape-fill {
+  fill: var(--color-primary);
+}
+
+.information-section-content {
+  display: grid;
+  gap: 2rem;
+}
+.information-section-content .information-heading {
+  font-weight: bold;
+  font-size: clamp(0.8313rem, 2vw, 1rem);
+  margin-bottom: 1rem;
+}
+.information-section-content .information-sub-heading {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+.information-section-content .hours-container {
+  display: flex;
+  flex-direction: column;
+}
+.information-section-content .hours-container hr {
+  margin: 0;
+}
+.information-section-content .information-sub-container {
+  margin-bottom: 1rem;
+}
+.information-section-content .hours-of-operation-day {
+  align-items: center;
+  display: flex;
+  font-size: var(--body-text-size);
+  gap: 3rem;
+  justify-content: space-between;
+}
+.information-section-content .information-bottom-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (min-width: 768px) {
+  .testimonial-section-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .information-section-content {
+    gap: 5rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 @media (min-width: 1024px) {
   nav .nav-ul {
     display: flex;
-    position: relative;
   }
   header:has(.nav-button.open) .header-title {
     transform: scale(1);
