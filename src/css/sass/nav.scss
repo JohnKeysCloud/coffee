@@ -6,7 +6,6 @@
     opacity: 1;
   }
 }
-
 @keyframes fade-out {
   from {
     opacity: 1;
@@ -16,28 +15,15 @@
   }
 }
 
-.nav-button.open + .nav-ul {
-  animation: fade-in 1s ease-in-out;
-  display: flex;
-
-  &.closing {
-    animation: fade-out 100ms ease-in-out;
-  }
-}
-
 nav {
   $link-color: white;
-
-  display: flex;
-  flex-direction: column;
+  $link-shadow: 3px 3px 3px black;
   
   .nav-ul {
     display: none;
     gap: 1.5rem;
     list-style: none;
     position: absolute;
-    right: 1.5rem;
-    top: 65%;
     
     .nav-li {
       position: relative;
@@ -65,13 +51,7 @@ nav {
       color: $link-color;
       position: relative;
       text-decoration: none;
+      text-shadow: $link-shadow;
     }
-  }
-}
-
-@media (min-width: 1024px) {
-  nav .nav-ul {
-    display: flex;
-    position: relative;
   }
 }

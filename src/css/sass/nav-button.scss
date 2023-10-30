@@ -1,5 +1,6 @@
 .nav-button {
-  $button-size: 20px;
+  $button-height: 20px;
+  $button-width: 20px;
   $san-size: 2px;
   $san-border-radius: 25px;
   $san-color: white;
@@ -8,16 +9,15 @@
   align-items: center;
   cursor: pointer;
   display: flex;
-  height: $button-size;
+  height: $button-height;
   justify-content: center;
-  width: 20px;
+  width: $button-width;
 
   .nav-san, .nav-san::before, .nav-san::after {
     transition: all $transition-time ease-in-out;
   }
   
   &.open {
-
     .nav-san {
       background: transparent;
       
@@ -27,6 +27,15 @@
       &::after {
         transform: translateY(0) rotate(45deg);
       }
+    }
+  }
+
+  &.open + .nav-ul {
+  animation: fade-in 1s ease-in-out;
+  display: flex;
+
+    &.closing {
+      animation: fade-out 100ms ease-in-out;
     }
   }
 
@@ -48,17 +57,11 @@
     }
 
     &::before {
-      transform: translateY(calc(($button-size - $san-size * 3) / -2 ));
+      transform: translateY(calc(($button-height - $san-size * 3) / -2 ));
     }
 
     &::after {
-      transform: translateY(calc(($button-size - $san-size * 3) / 2 ));
+      transform: translateY(calc(($button-height - $san-size * 3) / 2 ));
     }
-  }
-}
-
-@media (min-width: 1024px) {
-  .nav-button {
-    display: none;
   }
 }
