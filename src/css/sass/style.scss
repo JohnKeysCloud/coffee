@@ -149,18 +149,18 @@ section {
 
   svg {
     display: block;
-    height: 50px;
+    height: 55px;
     position: relative;
     width: calc(100% + 1.3px);
   }
 }
 
 .shape-divider-top {
-  top: 0;
+  top: -1px;
 }
 
 .shape-divider-bottom {
-  bottom: 0;
+  bottom: -1px;
   transform: rotate(180deg);
 }
 

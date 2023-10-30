@@ -4,6 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
+    "update-gh-page": "git subtree push --prefix dist origin gh-pages", 
     "build": "webpack --progress  --mode=production",
     "dev": "webpack --progress --mode=development",
     "serve": "webpack serve --progress --mode=development",
