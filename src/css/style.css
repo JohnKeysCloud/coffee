@@ -76,6 +76,15 @@ nav .nav-ul .nav-li {
   position: relative;
   transition: transform 250ms ease-in-out;
 }
+nav .nav-ul .nav-li:nth-of-type(odd) {
+  transform: rotate(-8deg);
+}
+nav .nav-ul .nav-li:nth-of-type(even) {
+  transform: rotate(8deg);
+}
+nav .nav-ul .nav-li:hover {
+  transform: rotate(0);
+}
 nav .nav-ul .nav-li::before {
   content: "";
   position: absolute;
@@ -241,85 +250,108 @@ header:has(.nav-button.open) .header-title {
   transform: scale(0.7);
 }
 
-section {
+main section {
   position: relative;
 }
-section.shop-display-section .shop-image {
+main section.shop-display-section .shop-image {
   width: 100%;
 }
-section.shop-display-section .shape-divider-one .shape-fill {
+main section.shop-display-section .shape-divider-one .shape-fill {
   fill: var(--color-primary);
 }
-section.shop-display-section .shape-divider-two .shape-fill {
+main section.shop-display-section .shape-divider-two .shape-fill {
   fill: var(--color-secondary);
 }
-section.testimonial-section {
+main section.testimonial-section {
   background-color: var(--color-secondary);
 }
-section.testimonial-section .testimonial-section-content {
+main section.testimonial-section .testimonial-section-content {
   align-items: center;
   display: grid;
   gap: 1rem;
   margin-inline: auto;
   place-items: center;
 }
-section.testimonial-section .testimonial-quote,
-section.testimonial-section .testimonial-figcaption {
+main section.testimonial-section .testimonial-quote,
+main section.testimonial-section .testimonial-figcaption {
   color: var(--color-text-secondary);
   font-size: var(--body-text-size);
   font-style: italic;
   margin-bottom: 1rem;
   text-align: center;
 }
-section.testimonial-section .testimonial-figcaption {
+main section.testimonial-section .testimonial-figcaption {
   font-weight: bold;
 }
-section.testimonial-section .coffee-cup {
+main section.testimonial-section .coffee-cup {
   -webkit-animation: wobble-hor-bottom 3s both infinite;
   animation: wobble-hor-bottom 3s both infinite;
   aspect-ratio: 1;
   filter: drop-shadow(3px 5px 5px var(--color-primary));
   height: clamp(100px, 33vw, 300px);
 }
-section.testimonial-section .shop-name {
+main section.testimonial-section .shop-name {
   font-weight: 700;
 }
-section.testimonial-section .shape-divider-three .shape-fill {
+main section.testimonial-section .shape-divider-three .shape-fill {
   fill: var(--color-primary);
 }
-section.information-section .information-section-content {
+main section.information-section .information-section-content {
   display: grid;
   gap: 2rem;
 }
-section.information-section .information-section-content .information-heading {
+main section.information-section .information-section-content .information-heading {
   font-weight: bold;
   font-size: clamp(0.8313rem, 2vw, 1rem);
   margin-bottom: 1rem;
 }
-section.information-section .information-section-content .information-sub-heading {
+main section.information-section .information-section-content .information-sub-heading {
   font-weight: bold;
   margin-bottom: 0.25rem;
 }
-section.information-section .information-section-content .hours-container {
+main section.information-section .information-section-content .hours-container {
   display: flex;
   flex-direction: column;
 }
-section.information-section .information-section-content .hours-container hr {
+main section.information-section .information-section-content .hours-container hr {
   margin: 0;
 }
-section.information-section .information-section-content .information-sub-container {
+main section.information-section .information-section-content .information-sub-container {
   margin-bottom: 1rem;
 }
-section.information-section .information-section-content .hours-of-operation-day {
+main section.information-section .information-section-content .hours-of-operation-day {
   align-items: center;
   display: flex;
   font-size: var(--body-text-size);
   gap: 3rem;
   justify-content: space-between;
 }
-section.information-section .information-section-content .information-bottom-section {
+main section.information-section .information-section-content .information-bottom-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+footer {
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+  display: grid;
+  gap: 1rem;
+  padding-block: 1rem;
+  place-items: center;
+}
+footer .logo-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+footer .footer-logo {
+  fill: var(--color-secondary);
+  height: 1rem;
+  transition: all 250ms ease-in-out;
+}
+footer .footer-logo:hover {
+  opacity: 0.8;
+  transform: scale(1.1) rotate(8deg);
 }
 
 @media (min-width: 768px) {

@@ -166,105 +166,133 @@ header {
   }
 }
 
-section {
-  position: relative;
-
-  &.shop-display-section {
-  .shop-image {
-    width: 100%;
-  }
-
-  .shape-divider-one .shape-fill {
-    fill:var(--color-primary);
-  }
-
-  .shape-divider-two .shape-fill {
-    fill: var(--color-secondary);
-  }
-  }
-
-  &.testimonial-section {
-    background-color: var(--color-secondary);
-
-    .testimonial-section-content {
-      align-items: center;
-      display: grid;
-      gap: 1rem;
-      margin-inline: auto;
-      place-items: center;
+main {
+  section {
+    position: relative;
+  
+    &.shop-display-section {
+    .shop-image {
+      width: 100%;
     }
-
-    .testimonial-quote,
-    .testimonial-figcaption {
-      color:var(--color-text-secondary);
-      font-size: var(--body-text-size);
-      font-style: italic;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    .testimonial-figcaption {
-      font-weight: bold;
-    }
-
-    .coffee-cup {
-      -webkit-animation: wobble-hor-bottom 3s both infinite;
-      animation: wobble-hor-bottom 3s both infinite;
-      aspect-ratio: 1;
-      filter: drop-shadow(3px 5px 5px var(--color-primary));
-      height: clamp(100px, 33vw, 300px);
-    }
-
-    .shop-name {
-      font-weight: 700;
-    }
-
-    .shape-divider-three .shape-fill {
+  
+    .shape-divider-one .shape-fill {
       fill:var(--color-primary);
     }
-  }
-
-  &.information-section {
-    .information-section-content {
-      display: grid;
-      gap: 2rem;
-
-      .information-heading {
-        font-weight: bold;
-        font-size: clamp(0.8313rem, 2vw, 1rem);
+  
+    .shape-divider-two .shape-fill {
+      fill: var(--color-secondary);
+    }
+    }
+  
+    &.testimonial-section {
+      background-color: var(--color-secondary);
+    
+      .testimonial-section-content {
+        align-items: center;
+        display: grid;
+        gap: 1rem;
+        margin-inline: auto;
+        place-items: center;
+      }
+    
+      .testimonial-quote,
+      .testimonial-figcaption {
+        color:var(--color-text-secondary);
+        font-size: var(--body-text-size);
+        font-style: italic;
         margin-bottom: 1rem;
+        text-align: center;
       }
-
-      .information-sub-heading {
+    
+      .testimonial-figcaption {
         font-weight: bold;
-        margin-bottom: 0.25rem;
       }
-
-      .hours-container {
-        display: flex;
-        flex-direction: column;
-
-        hr {
-          margin: 0;
+    
+      .coffee-cup {
+        -webkit-animation: wobble-hor-bottom 3s both infinite;
+        animation: wobble-hor-bottom 3s both infinite;
+        aspect-ratio: 1;
+        filter: drop-shadow(3px 5px 5px var(--color-primary));
+        height: clamp(100px, 33vw, 300px);
+      }
+    
+      .shop-name {
+        font-weight: 700;
+      }
+    
+      .shape-divider-three .shape-fill {
+        fill:var(--color-primary);
+      }
+    }
+  
+    &.information-section {
+      .information-section-content {
+        display: grid;
+        gap: 2rem;
+      
+        .information-heading {
+          font-weight: bold;
+          font-size: clamp(0.8313rem, 2vw, 1rem);
+          margin-bottom: 1rem;
+        }
+      
+        .information-sub-heading {
+          font-weight: bold;
+          margin-bottom: 0.25rem;
+        }
+      
+        .hours-container {
+          display: flex;
+          flex-direction: column;
+        
+          hr {
+            margin: 0;
+          }
+        }
+      
+        .information-sub-container {
+          margin-bottom: 1rem;
+        }
+      
+        .hours-of-operation-day {
+          align-items: center;
+          display: flex;
+          font-size: var(--body-text-size);
+          gap: 3rem;
+          justify-content: space-between;
+        }
+      
+        .information-bottom-section {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
         }
       }
+    }
+  }
+}
 
-      .information-sub-container {
-        margin-bottom: 1rem;
-      }
+footer {
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+  display: grid;
+  gap: 1rem;
+  padding-block: 1rem;
+  place-items: center;
 
-      .hours-of-operation-day {
-        align-items: center;
-        display: flex;
-        font-size: var(--body-text-size);
-        gap: 3rem;
-        justify-content: space-between;
-      }
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+  }
 
-      .information-bottom-section {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-      }
+  .footer-logo {
+    fill: var(--color-secondary);
+    height: 1rem;
+    transition: all 250ms ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+      transform: scale(1.1) rotate(8deg);
     }
   }
 }

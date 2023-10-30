@@ -18,6 +18,7 @@
 nav {
   $link-color: white;
   $link-shadow: 3px 3px 3px black;
+  $link-rotation: 8deg;
   
   .nav-ul {
     display: none;
@@ -28,6 +29,18 @@ nav {
     .nav-li {
       position: relative;
       transition: transform 250ms ease-in-out;
+
+      &:nth-of-type(odd) {
+        transform: rotate(calc($link-rotation * -1));
+      }
+      
+      &:nth-of-type(even) {
+        transform: rotate($link-rotation);
+      }
+
+      &:hover {
+        transform: rotate(0);
+      }
 
       &::before {
         content: '';
