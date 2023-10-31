@@ -1,4 +1,4 @@
-.nav-button {
+.nav-san-button-container {
   $button-height: 20px;
   $button-width: 20px;
   $san-size: 2px;
@@ -13,12 +13,12 @@
   justify-content: center;
   width: $button-width;
 
-  .nav-san, .nav-san::before, .nav-san::after {
+  .nav-san-button, .nav-san-button::before, .nav-san-button::after {
     transition: all $transition-time ease-in-out;
   }
   
   &.open {
-    .nav-san {
+    .nav-san-button {
       background: transparent;
       
       &::before {
@@ -39,7 +39,7 @@
     }
   }
 
-  .nav-san {
+  .nav-san-button {
     background: $san-color;
     border-radius: $san-border-radius;
     height: $san-size;

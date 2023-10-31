@@ -8,6 +8,7 @@ function closeNav() {
 
   navButton.classList.remove('open');
   navButton.setAttribute('aria-label', 'Open Navigation Menu');
+  navButton.setAttribute('aria-expanded', false);
 }
 
 function initiateCloseNav() {

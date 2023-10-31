@@ -1,6 +1,6 @@
 @import '../css/cyclone-reset.css';
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
-.nav-button {
+.nav-san-button-container {
   align-items: center;
   cursor: pointer;
   display: flex;
@@ -8,33 +8,33 @@
   justify-content: center;
   width: 20px;
 }
-.nav-button .nav-san, .nav-button .nav-san::before, .nav-button .nav-san::after {
+.nav-san-button-container .nav-san-button, .nav-san-button-container .nav-san-button::before, .nav-san-button-container .nav-san-button::after {
   transition: all 150ms ease-in-out;
 }
-.nav-button.open .nav-san {
+.nav-san-button-container.open .nav-san-button {
   background: transparent;
 }
-.nav-button.open .nav-san::before {
+.nav-san-button-container.open .nav-san-button::before {
   transform: translateY(0) rotate(-45deg);
 }
-.nav-button.open .nav-san::after {
+.nav-san-button-container.open .nav-san-button::after {
   transform: translateY(0) rotate(45deg);
 }
-.nav-button.open + .nav-ul {
+.nav-san-button-container.open + .nav-ul {
   animation: fade-in 1s ease-in-out;
   display: flex;
 }
-.nav-button.open + .nav-ul.closing {
+.nav-san-button-container.open + .nav-ul.closing {
   animation: fade-out 100ms ease-in-out;
 }
-.nav-button .nav-san {
+.nav-san-button-container .nav-san-button {
   background: white;
   border-radius: 25px;
   height: 2px;
   position: relative;
   width: 100%;
 }
-.nav-button .nav-san::before, .nav-button .nav-san::after {
+.nav-san-button-container .nav-san-button::before, .nav-san-button-container .nav-san-button::after {
   background-color: white;
   border-radius: 25px;
   content: "";
@@ -43,10 +43,10 @@
   height: 2px;
   width: 100%;
 }
-.nav-button .nav-san::before {
+.nav-san-button-container .nav-san-button::before {
   transform: translateY(-7px);
 }
-.nav-button .nav-san::after {
+.nav-san-button-container .nav-san-button::after {
   transform: translateY(7px);
 }
 
@@ -246,7 +246,7 @@ header nav .nav-ul {
   right: 1.5rem;
   top: 65%;
 }
-header:has(.nav-button.open) .header-title {
+header:has(.nav-san-button-container.open) .header-title {
   transform: scale(0.7);
 }
 
@@ -364,7 +364,7 @@ footer .footer-logo:hover {
   }
 }
 @media (min-width: 1024px) {
-  header nav .nav-button {
+  header nav .nav-san-button-container {
     display: none;
   }
   header nav .nav-ul {
@@ -372,7 +372,7 @@ footer .footer-logo:hover {
     position: relative;
     right: 0;
   }
-  header:has(.nav-button.open) .header-title {
+  header:has(.nav-san-button-container.open) .header-title {
     transform: scale(1);
   }
 }

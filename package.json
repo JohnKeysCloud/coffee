@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "update-gh-page": "git subtree push --prefix dist origin gh-pages", 
+    "update-gh-page": "git subtree push --prefix dist origin gh-pages",
     "build": "webpack --progress  --mode=production",
     "dev": "webpack --progress --mode=development",
     "serve": "webpack serve --progress --mode=development",
@@ -25,5 +25,8 @@
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "mini-css-extract-plugin": "^2.7.6"
   }
 }
