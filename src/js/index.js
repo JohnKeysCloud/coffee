@@ -1,5 +1,8 @@
 import '../css/style.css';
 
+import coffeeShop from '../assets/images/coffee-shop.png';
+import coffeeCup from '../assets/images/coffee-cup.webp';
+
 const content = document.getElementById('content');
 
 const pageNames = ['home', 'products', 'story', 'gallery'];
@@ -178,7 +181,7 @@ function createSectionOne() {
 
   const shopImage = document.createElement('img');
   shopImage.classList.add('shop-image');
-  shopImage.setAttribute('src', './assets/images/coffee-shop.png');
+  shopImage.setAttribute('src', coffeeShop);
   shopImage.setAttribute('alt', 'Coffee Shop');
 
   const shapeDividerTop = createDivider([
@@ -209,7 +212,7 @@ function createSectionTwo() {
 
   const coffeeCupImage = document.createElement('img');
   coffeeCupImage.classList.add('coffee-cup');
-  coffeeCupImage.setAttribute('src', './assets/images/coffee-cup.webp');
+  coffeeCupImage.setAttribute('src', coffeeCup);
   coffeeCupImage.setAttribute('alt', 'Coffee Cup');
 
   const shapeDividerBottom = createDivider([
