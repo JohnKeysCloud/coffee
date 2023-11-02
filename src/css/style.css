@@ -82,29 +82,38 @@ nav .nav-ul .nav-li:nth-of-type(odd) {
 nav .nav-ul .nav-li:nth-of-type(even) {
   transform: rotate(8deg);
 }
-nav .nav-ul .nav-li:hover {
-  transform: rotate(0);
-}
-nav .nav-ul .nav-li::before {
+nav .nav-ul .nav-li::before, nav .nav-ul .nav-li::after {
   content: "";
   position: absolute;
-  inset: -5px -5px;
-  border-bottom: 2px solid white;
-  border-radius: 5px;
+  inset: 0px -10px;
+  border-radius: 100px;
   opacity: 1;
   z-index: 0;
   transform: scaleX(0);
   transform-origin: center;
 }
-nav .nav-ul .nav-li:hover::before {
+nav .nav-ul .nav-li::before {
+  border-right: 2px solid white;
+}
+nav .nav-ul .nav-li::after {
+  border-left: 2px solid white;
+}
+nav .nav-ul .nav-li:hover {
+  transform: rotate(0);
+}
+nav .nav-ul .nav-li:hover::before, nav .nav-ul .nav-li:hover::after {
   transform: scaleX(1);
   transition: transform 250ms ease-in-out;
 }
 nav .nav-ul .nav-a {
-  color: white;
+  background: linear-gradient(white, white, skyblue);
+  background: -webkit-linear-gradient(white, white, skyblue);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   position: relative;
   text-decoration: none;
-  text-shadow: 3px 3px 3px black;
+  text-shadow: unset;
 }
 
 @-webkit-keyframes wobble-hor-bottom {
@@ -232,13 +241,17 @@ header .header-content {
   position: relative;
 }
 header .header-left .header-title {
+  background: linear-gradient(white, gray);
+  background: -webkit-linear-gradient(white, white, skyblue);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   display: inline-block;
   font-family: "Hello Headline";
-  font-size: clamp(2.5rem, 22vw, 11rem);
-  line-height: 1;
+  font-size: clamp(1.313rem, 11vw, 5.5rem);
+  line-height: 1.25;
   position: relative;
   text-decoration: none;
-  text-shadow: 3px 3px 3px black;
   transform-origin: top left;
   transition: transform 250ms ease-in-out;
 }

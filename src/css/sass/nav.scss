@@ -17,7 +17,7 @@
 
 nav {
   $link-color: white;
-  $link-shadow: 3px 3px 3px black;
+  $link-shadow: unset;
   $link-rotation: 8deg;
   
   .nav-ul {
@@ -38,30 +38,41 @@ nav {
         transform: rotate($link-rotation);
       }
 
-      &:hover {
-        transform: rotate(0);
-      }
-
-      &::before {
+      &::before, &::after {
         content: '';
         position: absolute;
-        inset: -5px -5px;
-        border-bottom: 2px solid $link-color;
-        border-radius: 5px;
+        inset: 0px -10px;
+        border-radius: 100px;
         opacity: 1;
         z-index: 0;
         transform: scaleX(0);
         transform-origin: center;
       }
 
-      &:hover::before {
-        transform: scaleX(1);
-        transition: transform 250ms ease-in-out;
+      &::before {
+        border-right: 2px solid $link-color;
+      }
+
+      &::after {
+        border-left: 2px solid $link-color;
+      }
+
+      &:hover {
+        transform: rotate(0);
+
+        &::before, &::after {
+          transform: scaleX(1);
+          transition: transform 250ms ease-in-out;
+        }
       }
     }
 
     .nav-a {
-      color: $link-color;
+      background: linear-gradient(white, white, skyblue);
+      background: -webkit-linear-gradient(white, white, skyblue);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       position: relative;
       text-decoration: none;
       text-shadow: $link-shadow;

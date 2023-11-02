@@ -140,13 +140,18 @@ header {
 
   .header-left {
     .header-title {
+      background: linear-gradient(white, gray);
+      background: -webkit-linear-gradient(white, white, skyblue);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       display: inline-block;
       font-family: 'Hello Headline';
-      font-size: clamp(2.5rem, 22vw, 11rem);
-      line-height: 1;
+      font-size: clamp(1.313rem, 11vw, 5.5rem);
+      line-height: 1.25;
       position: relative;
       text-decoration: none;
-      text-shadow: 3px 3px 3px black;
+      // text-shadow: 3px 3px 3px skyblue, -3px -3px 3px black;
       transform-origin: top left;
       transition: transform 250ms ease-in-out;
     }
@@ -156,6 +161,8 @@ header {
     .nav-ul {
       right: 1.5rem;
       top: 65%;
+
+      
     }
   }
 
