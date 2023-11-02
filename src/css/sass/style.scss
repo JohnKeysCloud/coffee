@@ -241,7 +241,7 @@ main {
           margin-bottom: 0.25rem;
         }
 
-        .hours-container {
+        .hours-content-container {
           display: flex;
           flex-direction: column;
 
@@ -254,7 +254,7 @@ main {
           margin-bottom: 1rem;
         }
 
-        .hours-of-operation-day {
+        .day-container {
           align-items: center;
           display: flex;
           font-size: var(--body-text-size);

@@ -25,7 +25,7 @@
   display: flex;
 }
 .nav-san-button-container.open + .nav-ul.closing {
-  animation: fade-out 100ms ease-in-out;
+  animation: fade-out 150ms ease-in-out;
 }
 .nav-san-button-container .nav-san-button {
   background: white;
@@ -309,17 +309,17 @@ main section.information-section .information-section-content .information-sub-h
   font-weight: bold;
   margin-bottom: 0.25rem;
 }
-main section.information-section .information-section-content .hours-container {
+main section.information-section .information-section-content .hours-content-container {
   display: flex;
   flex-direction: column;
 }
-main section.information-section .information-section-content .hours-container hr {
+main section.information-section .information-section-content .hours-content-container hr {
   margin: 0;
 }
 main section.information-section .information-section-content .information-sub-container {
   margin-bottom: 1rem;
 }
-main section.information-section .information-section-content .hours-of-operation-day {
+main section.information-section .information-section-content .day-container {
   align-items: center;
   display: flex;
   font-size: var(--body-text-size);
