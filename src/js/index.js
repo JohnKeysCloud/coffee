@@ -158,7 +158,7 @@ function createQuotation(quoteObject) {
   quotePartsArray.forEach((part) => {
     if (part === emphasisText) {
       const emphasizedSpan = document.createElement('span');
-      emphasizedSpan.classList.add('shop-name');
+      emphasizedSpan.classList.add('emphasized-text');
       emphasizedSpan.textContent = part;
 
       blockquoteText.appendChild(emphasizedSpan);

@@ -303,7 +303,7 @@ main section.testimonial-section .coffee-cup {
   filter: drop-shadow(3px 5px 5px var(--color-primary));
   height: clamp(100px, 33vw, 300px);
 }
-main section.testimonial-section .shop-name {
+main section.testimonial-section .emphasized-text {
   font-weight: 700;
 }
 main section.testimonial-section .shape-divider-three .shape-fill {
