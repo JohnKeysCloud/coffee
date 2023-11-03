@@ -54,19 +54,6 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Cyclone Studios App',
-      minify: {
-        collapseWhitespace: false,
-        removeComments: false,
-      },
-      filename: 'index.html',
-      inject: 'head',
-      scriptLoading: 'defer',
-      hash: false, // add hash to the file so filename is different on every build
-    }),
-  ],
   devServer: {
     static: path.join(__dirname, 'src'), // static files
     port: 3000,
