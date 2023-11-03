@@ -72,7 +72,7 @@
   --body-text-size: clamp(0.75rem, 2vw, 0.8313rem);
 
   // * colors
-  --color-primary: #574240;
+  --color-primary: #271300;
   --color-secondary: #D1E7E0;
 
   --color-text-primary: white;
@@ -140,8 +140,8 @@ header {
 
   .header-left {
     .header-title {
-      background: linear-gradient(white, gray);
-      background: -webkit-linear-gradient(white, white, skyblue);
+      background: linear-gradient(skyblue, white, white);
+      background: -webkit-linear-gradient(skyblue, white, white);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -161,8 +161,6 @@ header {
     .nav-ul {
       right: 1.5rem;
       top: 65%;
-
-      
     }
   }
 
@@ -177,18 +175,20 @@ main {
   section {
     position: relative;
 
-    &.shop-display-section {
-    .shop-image {
-      width: 100%;
-    }
+    &.shop-display-section {      
+      .shop-image {
+        object-fit: cover;
+        min-height: 100vh;
+        width: 100%;
+      }
 
-    .shape-divider-one .shape-fill {
-      fill:var(--color-primary);
-    }
+      .shape-divider-one .shape-fill {
+        fill:var(--color-primary);
+      }
 
-    .shape-divider-two .shape-fill {
-      fill: var(--color-secondary);
-    }
+      .shape-divider-two .shape-fill {
+        fill: var(--color-secondary);
+      }
     }
 
     &.testimonial-section {
@@ -313,7 +313,6 @@ footer {
     gap: 5rem;
     grid-template-columns: repeat(2, 1fr);
   }
-
 }
 
 @media (min-width: 1024px) {

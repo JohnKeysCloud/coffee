@@ -29,14 +29,14 @@
 }
 .nav-san-button-container .nav-san-button {
   background: white;
-  border-radius: 25px;
+  border-radius: 50%;
   height: 2px;
   position: relative;
   width: 100%;
 }
 .nav-san-button-container .nav-san-button::before, .nav-san-button-container .nav-san-button::after {
   background-color: white;
-  border-radius: 25px;
+  border-radius: 50%;
   content: "";
   position: absolute;
   inset: 0;
@@ -106,8 +106,8 @@ nav .nav-ul .nav-li:hover::before, nav .nav-ul .nav-li:hover::after {
   transition: transform 250ms ease-in-out;
 }
 nav .nav-ul .nav-a {
-  background: linear-gradient(white, white, skyblue);
-  background: -webkit-linear-gradient(white, white, skyblue);
+  background: linear-gradient(skyblue, white, white);
+  background: -webkit-linear-gradient(skyblue, white, white);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -178,7 +178,7 @@ nav .nav-ul .nav-a {
 }
 :root {
   --body-text-size: clamp(0.75rem, 2vw, 0.8313rem);
-  --color-primary: #574240;
+  --color-primary: #271300;
   --color-secondary: #D1E7E0;
   --color-text-primary: white;
   --color-text-secondary: #704241;
@@ -241,8 +241,8 @@ header .header-content {
   position: relative;
 }
 header .header-left .header-title {
-  background: linear-gradient(white, gray);
-  background: -webkit-linear-gradient(white, white, skyblue);
+  background: linear-gradient(skyblue, white, white);
+  background: -webkit-linear-gradient(skyblue, white, white);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -267,6 +267,8 @@ main section {
   position: relative;
 }
 main section.shop-display-section .shop-image {
+  object-fit: cover;
+  min-height: 100vh;
   width: 100%;
 }
 main section.shop-display-section .shape-divider-one .shape-fill {

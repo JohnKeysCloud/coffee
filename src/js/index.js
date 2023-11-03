@@ -175,6 +175,9 @@ function createQuotation(quoteObject) {
   return figure;
 }
 
+// ! add arrow down on bottom of full height hero section
+// ! use intersection observer to hide arrow down when user scrolls down 
+// ! (or clicks it, which will scroll to next section)
 function createSectionOne() {
   const shopDisplaySection = document.createElement('section');
   shopDisplaySection.classList.add('shop-display-section');

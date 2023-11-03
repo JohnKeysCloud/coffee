@@ -68,8 +68,8 @@ nav {
     }
 
     .nav-a {
-      background: linear-gradient(white, white, skyblue);
-      background: -webkit-linear-gradient(white, white, skyblue);
+      background: linear-gradient(skyblue, white, white);
+      background: -webkit-linear-gradient(skyblue, white, white);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;

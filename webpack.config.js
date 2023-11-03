@@ -54,11 +54,6 @@ module.exports = {
       },
     ],
   },
-  devServer: {
-    static: path.join(__dirname, 'src'), // static files
-    port: 3000,
-    open: true, // open browser on server start
-  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Cyclone Studios App',
@@ -74,7 +69,12 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: 'style.css',
-    })
+    }),
   ],
+  devServer: {
+    static: path.join(__dirname, 'src'), // static files
+    port: 3000,
+    open: true, // open browser on server start
+  },
   devtool: 'inline-source-map',
 };
