@@ -30,7 +30,7 @@
 .nav-san-button-container .nav-san-button {
   background: white;
   border-radius: 50%;
-  height: 2px;
+  height: 2.5px;
   position: relative;
   width: 100%;
 }
@@ -40,14 +40,14 @@
   content: "";
   position: absolute;
   inset: 0;
-  height: 2px;
+  height: 2.5px;
   width: 100%;
 }
 .nav-san-button-container .nav-san-button::before {
-  transform: translateY(-7px);
+  transform: translateY(-6.25px);
 }
 .nav-san-button-container .nav-san-button::after {
-  transform: translateY(7px);
+  transform: translateY(6.25px);
 }
 
 @keyframes fade-in {
