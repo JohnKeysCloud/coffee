@@ -1,11 +1,16 @@
+import productsPage from './products.js';
 import '../css/style.css';
 
 import coffeeShop from '../assets/images/coffee-shop.png';
 import coffeeCup from '../assets/images/coffee-cup.webp';
+import { render } from 'mustache';
 
+
+const body = document.body;
 const content = document.getElementById('content');
 
-const pageNames = ['home', 'products', 'story', 'gallery'];
+const pageNames = ['home', 'story', 'products'];
+const homePage = [createSectionOne, createSectionTwo, createSectionThree];
 
 function hideNav() {
   const navUL = document.querySelector('.nav-ul');
@@ -462,9 +467,6 @@ function createFooter() {
 
   for (const contactMethod in contactData) {
     const methodData = contactData[contactMethod];
-
-    console.log(contactMethod);
-    console.log(contactData[contactMethod].href);
     
     const contactButtonLink = document.createElement('a');
     contactButtonLink.classList.add('footer-link');
@@ -492,19 +494,50 @@ function createFooter() {
   return footer;
 }
 
-function createMain() {
+function renderContent(sectionsArray) {
+  sectionsArray = Array.isArray(sectionsArray)
+    ? sectionsArray
+    : sectionsArray
+    ? [sectionsArray]
+    : [];
+  const pageContent = document.getElementById('content');
   const main = document.createElement('main');
+  
+  sectionsArray.forEach((section) => {
+    main.appendChild(section());
+  });
 
-  main.appendChild(createSectionOne());
-  main.appendChild(createSectionTwo());
-  main.appendChild(createSectionThree());
+  pageContent.appendChild(main);
 
-  return main;
+  return pageContent;
 }
 
-content.appendChild(createHeader(pageNames));
-content.appendChild(createMain());
-content.appendChild(createFooter());
+function renderHomePage() {
+  body.appendChild(createHeader(pageNames));
+  body.appendChild(renderContent(homePage));
+  body.appendChild(createFooter());
+}
+
+renderHomePage();
+
+const navLinks = document.querySelectorAll('.nav-a');
+navLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    content.innerHTML = ''; // ! hacky way, revisit and use removeChild()/remove()… document fragment maybe>
+    switch (link.textContent) {
+      case 'home':
+        renderContent(homePage)
+        break;
+      case 'story':
+        // renderContent(storyPage); // ! create story page :)
+        break;
+      case 'products':
+        renderContent(productsPage)
+    }
+  });
+});
 
 // ! use when changing page contents
 // navLink.setAttribute('aria-current', 'page');
+// main.appendChild(gallery);

@@ -6,6 +6,7 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/js/index.js',
+    products: './src/js/products.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

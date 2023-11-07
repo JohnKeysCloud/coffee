@@ -77,20 +77,21 @@ nav .nav-ul .nav-li {
   transition: transform 250ms ease-in-out;
 }
 nav .nav-ul .nav-li:nth-of-type(odd) {
-  transform: rotate(-8deg);
-}
-nav .nav-ul .nav-li:nth-of-type(even) {
   transform: rotate(8deg);
 }
+nav .nav-ul .nav-li:nth-of-type(even) {
+  transform: rotate(-8deg);
+}
 nav .nav-ul .nav-li::before, nav .nav-ul .nav-li::after {
-  content: "";
-  position: absolute;
-  inset: 0px -10px;
   border-radius: 100px;
+  content: "";
+  inset: 0px -10px;
   opacity: 1;
-  z-index: 0;
+  pointer-events: none;
+  position: absolute;
   transform: scaleX(0);
   transform-origin: center;
+  z-index: 0;
 }
 nav .nav-ul .nav-li::before {
   border-right: 2px solid white;
@@ -114,6 +115,51 @@ nav .nav-ul .nav-a {
   position: relative;
   text-decoration: none;
   text-shadow: unset;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.product-grid {
+  display: grid;
+  gap: 64px;
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  list-style: none;
+  margin-inline: auto;
+  padding-block: 1rem;
+  padding-inline: 1.5rem;
+  width: min(100%, 803px + 3rem);
+}
+.product-grid .product-card-wrapper {
+  aspect-ratio: 1/1;
+  position: relative;
+}
+.product-grid .product-card-wrapper .product-card {
+  color: var(--color-text-primary);
+}
+.product-grid .product-card-wrapper .product-card .product-image {
+  animation: rotate 33s linear infinite;
+  border-radius: 50%;
+  box-shadow: 3px 3px 11px black, -3px -3px 11px skyblue;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.product-grid .product-card-wrapper .product-card .product-header {
+  font-family: "Hello Headline";
+  font-size: clamp(1rem, 5vw, 1.313rem);
+  line-height: 1;
+  text-shadow: 2px 2px 3px black;
+}
+.product-grid .product-card-wrapper .product-card .product-price {
+  font-size: var(--body-text-size);
+  font-weight: bold;
+  text-shadow: 2px 2px 2px black;
 }
 
 @-webkit-keyframes wobble-hor-bottom {
@@ -190,7 +236,7 @@ nav .nav-ul .nav-a {
 
 .section-content {
   margin-inline: auto;
-  padding-block: 50px;
+  padding-block: 25px;
   width: min(100%, 1200px);
 }
 
@@ -268,8 +314,9 @@ main section {
 }
 main section.shop-display-section .shop-image {
   object-fit: cover;
-  min-height: 100vh;
-  width: 100%;
+  margin-inline: auto;
+  min-height: 333px;
+  width: min(100%, 1200px);
 }
 main section.shop-display-section .shape-divider-one .shape-fill {
   fill: var(--color-primary);
