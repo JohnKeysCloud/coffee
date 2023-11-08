@@ -3,11 +3,9 @@ import '../css/style.css';
 
 import coffeeShop from '../assets/images/coffee-shop.png';
 import coffeeCup from '../assets/images/coffee-cup.webp';
-import { render } from 'mustache';
-
 
 const body = document.body;
-const content = document.getElementById('content');
+const pageContent = document.getElementById('content');
 
 const pageNames = ['home', 'story', 'products'];
 const homePage = [createSectionOne, createSectionTwo, createSectionThree];
@@ -494,50 +492,58 @@ function createFooter() {
   return footer;
 }
 
-function renderContent(sectionsArray) {
+function clearMainContent(mainElement) {
+  if (mainElement) {
+    while (mainElement.firstChild) {
+      mainElement.firstChild.remove();
+    }
+  }
+}
+
+function renderMain(sectionsArray) {
   sectionsArray = Array.isArray(sectionsArray)
     ? sectionsArray
     : sectionsArray
     ? [sectionsArray]
     : [];
-  const pageContent = document.getElementById('content');
-  const main = document.createElement('main');
+  
+  const main = document.querySelector('main') || document.createElement('main');
+  clearMainContent(main);
   
   sectionsArray.forEach((section) => {
     main.appendChild(section());
   });
 
-  pageContent.appendChild(main);
-
-  return pageContent;
+  return main;
 }
 
 function renderHomePage() {
-  body.appendChild(createHeader(pageNames));
-  body.appendChild(renderContent(homePage));
-  body.appendChild(createFooter());
+  pageContent.appendChild(createHeader(pageNames));
+  pageContent.appendChild(renderMain(homePage));
+  pageContent.appendChild(createFooter());
 }
 
 renderHomePage();
 
-const navLinks = document.querySelectorAll('.nav-a');
-navLinks.forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    content.innerHTML = ''; // ! hacky way, revisit and use removeChild()/remove()… document fragment maybe>
-    switch (link.textContent) {
-      case 'home':
-        renderContent(homePage)
-        break;
-      case 'story':
-        // renderContent(storyPage); // ! create story page :)
-        break;
-      case 'products':
-        renderContent(productsPage)
+document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('click', (e) => {
+    const navElement = e.target.classList.contains('nav-a');
+    
+    if (navElement) {
+      e.preventDefault();
+      switch (e.target.textContent) {
+        case 'home':
+          renderMain(homePage);
+          break;
+        case 'story':
+          // renderMain(storyPage); // ! create story page :)
+          break;
+        case 'products':
+          renderMain(productsPage);
+      }
     }
   });
 });
-
 // ! use when changing page contents
 // navLink.setAttribute('aria-current', 'page');
 // main.appendChild(gallery);
