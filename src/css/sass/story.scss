@@ -1,0 +1,33 @@
+.story-content-container {
+  display: grid;
+  margin-inline: auto;
+  padding-block: 25px;
+  padding-inline: 1.5rem;
+  width: min(100%, 700px);
+  
+  .story-heading {
+    font-size: clamp(2.25rem, 5vw, 3.313rem);
+    font-family: 'Hello Headline', sans-serif;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .story-body-text-container {
+    display: grid;
+    font-size: var(--body-text-size);
+    gap: 1.5rem;
+    text-align: center;
+
+    .story-paragraph-element {
+      line-height: 2;
+    }
+
+    .story-divider {
+      border: none;
+      border-top: 5px dashed var(--color-text-secondary);
+      margin-block: 0rem;
+      transform: scaleX(0.5);
+    }
+  }
+}

@@ -1,7 +1,8 @@
 @import '../css/cyclone-reset.css';
 @import './nav-button.scss';
 @import './nav.scss';
-@import './gallery.scss';
+@import './story.scss';
+@import './products.scss';
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
 @-webkit-keyframes wobble-hor-bottom {
@@ -227,6 +228,8 @@ main {
 
       .emphasized-text {
         font-weight: 700;
+        font-size: clamp(0.8313rem, 2.5vw, 0.938rem);
+
       }
 
       .shape-divider-three .shape-fill {

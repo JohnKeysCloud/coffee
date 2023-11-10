@@ -57,13 +57,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Cyclone Studios App',
+      title: 'Cloud 8 Café',
       filename: 'index.html',
       inject: 'head',
       scriptLoading: 'defer',
       hash: false, // add hash to the file so filename is different on every build
       minify: {
-        collapseWhitespace: false,
+        collapseWhitespace: true,
         removeComments: false,
       },
       template: './src/index.ejs',
