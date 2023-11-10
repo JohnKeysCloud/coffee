@@ -9,7 +9,7 @@
 
 .product-grid {
   $gap: 64px;
-  $product-card-width: 225px;
+  $product-card-width: 200px;
   $padding-inline: 1.5rem;
 
   display: grid;
@@ -23,17 +23,15 @@
   
   .product-card-wrapper {
     aspect-ratio: 1 / 1;
+    overflow: hidden;
     position: relative;
     
     .product-card {
       color: var(--color-text-primary);
-
+      
       .product-image {
-      animation: rotate 33s linear infinite;
-        // border-radius: 50%;
+        animation: rotate 33s linear infinite;
         border-radius: 50%;
-        // opacity: 0.7;
-        box-shadow: 3px 3px 11px black, -3px -3px 11px skyblue;
         position: absolute;
         inset: 0;
         z-index: -1;
@@ -50,9 +48,7 @@
         font-size: var(--body-text-size);
         font-weight: bold;
         text-shadow: 2px 2px 2px black;
-
       }
     }
   }
-
 }
